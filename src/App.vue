@@ -17,7 +17,7 @@
           :router="true"
         >
           <!--一级栏目-->
-          <el-submenu index="1">
+          <el-sub-menu index="1">
             <template #title>
               <span>Dashboard</span>
             </template>
@@ -26,7 +26,7 @@
               <el-menu-item index="/"><i class="el-icon-data-line" />系统介绍</el-menu-item>
               <el-menu-item index="/add"><i class="el-icon-data-line" />添加商品</el-menu-item>
             </el-menu-item-group>
-          </el-submenu>
+          </el-sub-menu>
         </el-menu>
       </el-aside>
       <!--右边内容布局-->
