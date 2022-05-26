@@ -1,8 +1,8 @@
 <template>
   <div class="footer">
-    <div class="left">Copyright © 2019-2021 十三. All rights reserved.</div>
+    <div class="left">victor-one.</div>
     <div class="right">
-      <a target="_blank" href="https://github.com/newbee-ltd/vue3-admin">vue3-admin Version 3.0.0</a>
+      <a target="_blank" href="https://github.com/victor-one/newbee-admin">Please give me a comment.</a>
     </div>
   </div>
 </template>

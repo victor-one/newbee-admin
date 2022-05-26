@@ -23,8 +23,8 @@
             </template>
             <!--二级栏目-->
             <el-menu-item-group>
-              <el-menu-item index="/"><i class="el-icon-data-line" />系统介绍</el-menu-item>
-              <el-menu-item index="/add"><i class="el-icon-data-line" />添加商品</el-menu-item>
+              <el-menu-item index="/"><el-icon><TrendCharts /></el-icon>系统介绍</el-menu-item>
+              <el-menu-item index="/add"><el-icon><Plus /></el-icon>添加商品</el-menu-item>
             </el-menu-item-group>
           </el-sub-menu>
         </el-menu>
