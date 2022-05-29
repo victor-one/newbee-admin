@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <div class="left">
-      <i v-if="hasBack" class="el-icon-back" @click="back"></i>
+      <el-icon v-if="hasBack" class="el-icon-back" @click="back"><Back /></el-icon>
       <span style="font-size: 20px">{{ name }}</span>
     </div>
     <div class="right">

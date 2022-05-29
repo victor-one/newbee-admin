@@ -15,6 +15,8 @@
           background-color="#222832"
           text-color="#fff"
           :router="true"
+          :default-openeds="defaultOpen"
+          :default-active="currentPath"
         >
           <!--一级栏目-->
           <el-sub-menu index="1">
@@ -23,8 +25,16 @@
             </template>
             <!--二级栏目-->
             <el-menu-item-group>
-              <el-menu-item index="/"><el-icon><TrendCharts /></el-icon>系统介绍</el-menu-item>
-              <el-menu-item index="/add"><el-icon><Plus /></el-icon>添加商品</el-menu-item>
+              <el-menu-item index="/"><el-icon size="20"><DataLine /></el-icon>首页</el-menu-item>
+              <el-menu-item index="/add"><el-icon size="20"><Plus /></el-icon>添加商品</el-menu-item>
+            </el-menu-item-group>
+          </el-sub-menu>
+          <el-sub-menu index="2">
+            <template #title>
+              <span>首页配置</span>
+            </template>
+            <el-menu-item-group>
+              <el-menu-item index="/swiper"><el-icon size="20"><Picture /></el-icon>轮播图配置</el-menu-item>
             </el-menu-item-group>
           </el-sub-menu>
         </el-menu>
@@ -52,6 +62,7 @@ import { useRouter } from 'vue-router'
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
 import { localGet } from '@/utils'
+import { pathMap } from './utils'
 
 export default {
   name: 'App',
@@ -65,6 +76,8 @@ export default {
     const router = useRouter()
     const state = reactive({
       showMenu: true, // 是否需要显示菜单
+      defaultOpen: ['1', '2'], // 默认打开的菜单
+      currentPath: '/' // 当前路径
     })
     // 监听路由的变化
     router.beforeEach((to, from, next) => {
@@ -82,6 +95,8 @@ export default {
         }
       }
       state.showMenu = !noMenu.includes(to.path) && localGet('token')
+      state.currentPath = to.path
+      document.title = pathMap[to.name]
     })
 
     return {
@@ -156,7 +171,7 @@ body {
 .el-submenu:first-child {
   border-top: none;
 }
-.el-submenu [class^="el-icon-"] {
+.el-submenu [class^="el-icon"] {
   vertical-align: -1px!important;
 }
 a {

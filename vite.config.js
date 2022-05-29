@@ -3,7 +3,7 @@ import vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
-import ElementPlus from 'unplugin-element-plus/vite'
+import ElementPlus from 'unplugin-element-plus/vite' // 不加这个配置，ElMessage出不来
 import path from 'path'
 
 const baseUrl = {
@@ -16,7 +16,7 @@ const baseUrl = {
 export default ({ mode }) =>  defineConfig({
   plugins: [
     vue(),
-    // 按需加入
+    // 按需加在
     AutoImport({
       resolvers: [ElementPlusResolver()],
     }),
@@ -26,7 +26,9 @@ export default ({ mode }) =>  defineConfig({
         importStyle: 'sass'
       })],
     }),
-    ElementPlus()
+    ElementPlus({
+      useSource: true,
+    }),
   ],
   base: baseUrl[mode],
   resolve: {
@@ -37,11 +39,11 @@ export default ({ mode }) =>  defineConfig({
   },
   css: {
     preprocessorOptions: {
-      // 覆盖掉element-plus包中的主题文件
+      // 覆盖掉element-plus包中的主题变量文件
       scss: {
         additionalData: `@use "@/styles/element/index.scss" as *;`,
-      }
-    }
+      },
+    },
   },
   server: {
     proxy: {
