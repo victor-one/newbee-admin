@@ -153,7 +153,7 @@ export default {
       formRef,
       handleBeforeUpload,
       handleUrlSuccess,
-      submitForm
+      submitForm,
     }
   }
 }

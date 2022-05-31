@@ -25,8 +25,8 @@
             </template>
             <!--二级栏目-->
             <el-menu-item-group>
-              <el-menu-item index="/"><el-icon size="20"><DataLine /></el-icon>首页</el-menu-item>
-              <el-menu-item index="/add"><el-icon size="20"><Plus /></el-icon>添加商品</el-menu-item>
+              <el-menu-item index="/"><el-icon><DataLine /></el-icon>首页</el-menu-item>
+              <el-menu-item index="/add"><el-icon><Plus /></el-icon>添加商品</el-menu-item>
             </el-menu-item-group>
           </el-sub-menu>
           <el-sub-menu index="2">
@@ -34,7 +34,10 @@
               <span>首页配置</span>
             </template>
             <el-menu-item-group>
-              <el-menu-item index="/swiper"><el-icon size="20"><Picture /></el-icon>轮播图配置</el-menu-item>
+              <el-menu-item index="/swiper"><el-icon><Picture /></el-icon>轮播图配置</el-menu-item>
+              <el-menu-item index="/hot"><el-icon><StarFilled /></el-icon>热销商品配置</el-menu-item>
+              <el-menu-item index="/new"><el-icon><Sell /></el-icon>新品上线配置</el-menu-item>
+              <el-menu-item index="/recommend"><el-icon><Pointer /></el-icon>为你推荐配置</el-menu-item>
             </el-menu-item-group>
           </el-sub-menu>
         </el-menu>

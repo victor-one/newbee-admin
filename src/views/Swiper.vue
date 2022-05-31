@@ -16,7 +16,7 @@
       </div>
     </template>
     <el-table
-      :load="loading"
+      v-loading="loading"
       ref="multipleTalble"
       :data="tableData"
       tooltip-effect="dark"
@@ -52,6 +52,24 @@
         label="添加时间"
         width="200"
       >
+      </el-table-column>
+      <el-table-column
+        label="操作"
+        width="100"
+      >
+        <template #default="scope">
+          <a style="cursor: pointer; margin-right: 10px" @click="handleEdit(scope.row.configId)">修改</a>
+          <el-popconfirm
+            title="确定删除吗？"
+            confirmButtonText='确定'
+            cancelButtonText='取消'
+            @confirm="handleDeleteOne(scope.row.configId)"
+          >
+            <template #reference>
+              <a style="cursor: pointer">删除</a>
+            </template>
+          </el-popconfirm>
+        </template>
       </el-table-column>
     </el-table>
     <!-- 分页组件 -->
@@ -140,6 +158,16 @@ export default {
         getCarousels()
       })
     }
+    const handleDeleteOne = (id) => {
+        axios.delete('/carousels', {
+          data: {
+            ids: [id]
+          }
+        }).then(() => {
+          ElMessage.success('删除成功')
+          getIndexConfig()
+        })
+      }
     return {
       ...toRefs(state),
       addSwiper,
@@ -148,6 +176,7 @@ export default {
       getCarousels,
       handleSelectionChange,
       handleDelete,
+      handleDeleteOne,
       changePage,
     }
   }
