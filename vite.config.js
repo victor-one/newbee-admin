@@ -14,6 +14,9 @@ const baseUrl = {
 
 // https://vitejs.dev/config/
 export default ({ mode }) =>  defineConfig({
+  build: {
+    chunkSizeWarningLimit: 1500,
+  },
   plugins: [
     vue(),
     // 按需加在
